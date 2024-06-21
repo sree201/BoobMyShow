@@ -40,6 +40,8 @@ echo "$word_count" | head -n 5 | awk '{print $2 " - " $1 " occurrences"}'
 
 # awk '{print $2, $1}': AWK to print the second and first columns (word and count, respectively).
 
+
+
 # #!/bin/bash
 
 # # Check if a file path is provided
