@@ -12,10 +12,14 @@ fi
 
 # Read the file, normalize text to lowercase, remove punctuation, and count occurrences
 word_count=$(tr -s '[:space:]' '\n' < "$file_name" | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | grep -v '^$' | sort | uniq -c | sort -nr)
+# tr -s '[:space:][:punct:]' '\n': Translates sequences of whitespace and punctuation characters into newline characters.
+# uniq -c: Removes duplicate lines and prefixes each line with the count of occurrences.
+# -c : it tells how many times a line was repeated by displaying a number as a prefix with the line.
 
 # Display the top 5 most frequent words
 echo "Top 5 Most Frequent Words:"
 echo "$word_count" | head -n 5 | awk '{print $2 " - " $1 " occurrences"}'
+# Use the -n option with a number (should be an integer) of lines to display.
 
 
 # Use tr to convert all spaces and punctuation to newlines,
@@ -33,6 +37,7 @@ echo "$word_count" | head -n 5 | awk '{print $2 " - " $1 " occurrences"}'
 # sort: Sorts the lines of text.
 
 # uniq -c: Removes duplicate lines and prefixes each line with the count of occurrences.
+# -c : it tells how many times a line was repeated by displaying a number as a prefix with the line.
 
 # sort -nr: Sorts the output in descending order based on the count.
 
