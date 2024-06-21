@@ -1,4 +1,5 @@
 #!/bin/bash
+## Write a script that reads a text file and counts the occurrences of each word, displaying the top 5 most frequent words along with their counts.
 
 # File to read
 file_name="your_file.txt"
@@ -17,6 +18,27 @@ echo "Top 5 Most Frequent Words:"
 echo "$word_count" | head -n 5 | awk '{print $2 " - " $1 " occurrences"}'
 
 
+# Use tr to convert all spaces and punctuation to newlines,
+# then use tr to convert everything to lowercase,
+# sort the words, count the occurrences, and finally, display the top 5
+# cat "$filename" | tr -s '[:space:][:punct:]' '\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -nr | head -n 5 | awk '{print $2, $1}' 
+# Logic ::
+
+# cat "$filename": Outputs the content of the file specified by the variable $filename.
+
+# tr -s '[:space:][:punct:]' '\n': Translates sequences of whitespace and punctuation characters into newline characters.
+
+# tr '[:upper:]' '[:lower:]': Translates uppercase letters to lowercase.
+
+# sort: Sorts the lines of text.
+
+# uniq -c: Removes duplicate lines and prefixes each line with the count of occurrences.
+
+# sort -nr: Sorts the output in descending order based on the count.
+
+# head -n 5: Displays the top 5 lines of the output.
+
+# awk '{print $2, $1}': AWK to print the second and first columns (word and count, respectively).
 
 # #!/bin/bash
 
