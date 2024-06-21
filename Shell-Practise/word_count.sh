@@ -17,7 +17,6 @@ echo "Top 5 Most Frequent Words:"
 echo "$word_count" | head -n 5 | awk '{print $2 " - " $1 " occurrences"}'
 
 
-###########################################################
 
 # #!/bin/bash
 
